@@ -32,8 +32,6 @@ RUN composer config -g repo.packagist composer https://packagist.phpcomposer.com
 
 WORKDIR /var/www/html/
 
-RUN composer install --optimize-autoloader
-
 RUN a2enmod rewrite
 
 RUN usermod -u 1000 www-data
