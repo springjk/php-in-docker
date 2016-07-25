@@ -1,10 +1,13 @@
 FROM php:7-apache
 
-# add source
+# add source code
 ADD code/ /var/www/html/
 
 # setting php
 ADD php/php.ini /usr/local/etc/php/php.ini
+
+# php && apache start file
+ADD php/start.sh /start.sh
 
 # install base tool
 ADD php/sources.list /etc/apt/sources.list
@@ -27,17 +30,18 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-di
 
 # install composer
 ADD php/composer.phar /usr/local/bin/composer
-RUN chmod +x /usr/local/bin/composer
-RUN composer config -g repo.packagist composer https://packagist.phpcomposer.com
+RUN chmod +x /usr/local/bin/composer \
+    && composer config -g repo.packagist composer https://packagist.phpcomposer.com
 
-WORKDIR /var/www/html/
-
-RUN a2enmod rewrite
-
-RUN usermod -u 1000 www-data
-
-RUN chown -R www-data:www-data /var/www/html/
+# setting apache
+RUN a2enmod rewrite \
+    && usermod -u 1000 www-data \
+    && chown -R www-data:www-data /var/www/html/
 
 EXPOSE 80
 
-VOLUME ["/var/www/html"]
+VOLUME ['/var/www/html']
+
+WORKDIR /var/www/html/
+
+CMD bash /start.sh
