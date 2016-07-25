@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- Standard Meta -->
+
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <!-- Site Properities -->
-        <title>Hello World!</title>
+
+        <title>Hello World</title>
+
         <link href="//cdn.bootcss.com/semantic-ui/2.2.2/semantic.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="home.css">
         <link rel="shortcut icon" href="http://php.net/favicon.ico">
@@ -27,7 +28,7 @@
               -webkit-transform: translate3d(0, 0, 0);
               transform: translate3d(0, 0, 0);
 
-              animation: change_background_color 4s forwards;
+              animation: change_background_color 3s forwards;
             }
 
             .index {
@@ -57,7 +58,7 @@
             }
             #example.index code {
               font-family: inherit;
-              font-size: 0.1em;
+              font-size: smaller;
               color: rgba(255, 255, 255, 0.7);
             }
 
@@ -67,6 +68,7 @@
             }
         </style>
     </head>
+
     <body id="example" class="index">
         <div class="introduction">
             <h1 class="ui inverted header">
