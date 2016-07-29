@@ -40,8 +40,6 @@ RUN a2enmod rewrite \
 
 EXPOSE 80
 
-VOLUME /var/www/html/
-
 WORKDIR /var/www/html/
 
 CMD ["bash", "/start.sh"]
